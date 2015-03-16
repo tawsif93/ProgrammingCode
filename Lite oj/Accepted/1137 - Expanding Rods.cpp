@@ -1,0 +1,42 @@
+#include <iostream>
+#include <cmath>
+#include <iomanip>
+
+using namespace std;
+
+int main() 
+{	
+	int t; 
+	double l,heat,  n , c, radius, h, l1 , AE,OE,AD,theta, x, temp;
+	const double pi = 2 *acos(0.0);
+	
+	cin >> t; 
+	
+	for (unsigned int i = 0; i < t; i += 1)
+	{
+		cin >> l >> heat >> c;
+		l1 = l + l * heat * c;
+		
+		if(l > 0 ) {
+
+			AE = l / 2;
+			AD = l1 / 2;
+			n = AE / AD ;
+			temp = 2;
+			x = 1;
+			for(int k = 0 ; k < 100 ; k++) {	
+				x = temp  - ((sin(temp) - (n * temp)) / ( cos(temp) - n ));
+				temp = x;
+			
+			}
+			radius = AE / sin(x);
+			OE = sqrt( pow( radius , 2) - pow(AE , 2 ) ) ;
+		
+			h = radius - OE ;
+		
+			cout << "Case " << i+1 << ": " << setprecision(12) << h << endl;
+		}
+		else cout << "Case " << i+1 << ": " << setprecision(12) << 0 << endl;
+	}
+	
+}

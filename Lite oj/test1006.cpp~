@@ -1,0 +1,54 @@
+#include<iostream>
+#include<vector>
+using namespace std;
+
+/*
+unsigned long int fn( unsigned long int n ) {
+    if( n <= 5){
+		if( n == 0 ) return a;
+		if( n == 1 ) return b;
+		if( n == 2 ) return c;
+		if( n == 3 ) return d;
+		if( n == 4 ) return e;
+		if( n == 5 ) return f;
+    }
+    else return( fn(n-1) + fn(n-2) + fn(n-3) + fn(n-4) + fn(n-5) + fn(n-6) );
+}
+*/
+int main() {
+    unsigned long int n, caseno = 0, cases;
+	unsigned long int a, b, c, d, e, f;
+	int calculate;
+	vector <int> input;
+    cin >> cases;
+    
+    while( cases-- ) {
+        cin >> a >> b >> c >> d >> e >> f >> n ;
+		input.clear();
+		calculate = 0 ;
+		
+		input.push_back(a);
+		input.push_back(b);
+		input.push_back(c);
+		input.push_back(d);
+		input.push_back(e);
+		input.push_back(f);
+
+		if(n > 5) {
+			for(int i = 6 ; i <=n ; i++) {
+				if(i > 6){
+					calculate = input[i-1] + input[0]+input[1]+input[2]+input[3]+input[4]+input[5];
+					input.push_back(calculate);
+				}
+				else {
+					calculate = input[0]+input[1]+input[2]+input[3]+input[4]+input[5];
+					input.push_back(calculate);
+				}
+			}
+		}
+        cout << "Case " << ++caseno << ": " << input[n] % 10000007 << endl;
+    }
+    return 0;
+}
+
+

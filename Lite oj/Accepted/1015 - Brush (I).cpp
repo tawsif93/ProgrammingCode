@@ -1,0 +1,28 @@
+#include<iostream>
+
+using namespace std;
+
+int main() {
+	int t , n;
+	
+	
+	cin >> t; 
+	
+	
+	for (int i = 0; i < t; i++)
+	{	
+
+		cin >> n;
+		int count =0;
+		for (int j = 0; j < n; j += 1)
+		{
+			int input ;
+			cin >> input;
+			if(input > 0) count += input;
+		}
+		cout << "Case " << i+1 << ": " << count << endl;
+	}
+
+	
+	return 0;
+}
